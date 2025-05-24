@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- 
+  HTML5 Document Declaration 
+  Tells the browser this is a modern HTML document
+-->
+<html lang="en">
+<!-- 
+  Root HTML element with language set to English
+  Important for accessibility and SEO
+-->
+<head>
+  <!-- 
+    Document Head Section
+    Contains meta information, stylesheets, and the page title
+  -->
+  <title>GeoPulse Navigator</title>
+  <!-- 
+    Page Title
+    Appears in browser tabs and bookmarks
+  -->
+
+  <!-- 
+    Leaflet CSS 
+    Stylesheet for the map library's visual elements
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+  <!-- 
+    Geocoder CSS
+    Stylesheet for the search control component
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.css" />
+
+  <!-- 
+    Internal CSS Styles
+    Custom styles for this application
+  -->
+  <style>
+    /* 
+      Map Container 
+      Sets the map to full viewport height and width
+    */
+    #map { 
+      height: 100vh; /* 100% of viewport height */
+      width: 100%;   /* 100% of container width */
+    }
+
+    /* 
+      Search Bar Styling
+      Positions the geocoder control in top-right corner
+    */
+    .leaflet-control-geocoder {
+      position: absolute; /* Removes from normal document flow */
+      top: 10px;         /* 10px from top */
+      right: 10px;       /* 10px from right */
+      z-index: 1000;     /* Ensures it stays above map */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Subtle shadow */
+    }
+
+    /* 
+      Export Button Styling
+      Fixed position button in bottom-right corner
+    */
+    #exportBtn {
+      position: fixed;   /* Stays in place during scrolling */
+      bottom: 20px;      /* 20px from bottom */
+      right: 20px;       /* 20px from right */
+      z-index: 1000;     /* Stays above other elements */
+      padding: 10px;     /* Internal spacing */
+      background: #4CAF50; /* Green color */
+      color: white;      /* White text */
+      border: none;      /* No border */
+      cursor: pointer;   /* Hand cursor on hover */
+    }
+  </style>
+</head>
+
+<!-- 
+  Document Body
+  Contains all visible page content
+-->
+<body>
+  <!-- 
+    Map Container Div
+    Leaflet will instantiate the map in this element
+  -->
+  <div id="map"></div>
+
+  <!-- 
+    Export Button
+    Triggers location data download when clicked
+  -->
+  <button id="exportBtn">Export Locations</button>
+
+  <!-- 
+    JavaScript Libraries
+    Loaded at end of body for better performance
+  -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- Leaflet Core Library - Map functionality -->
+
+  <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
+  <!-- Geocoder Plugin - Adds search functionality -->
+
+  <script src="test.js"></script>
+  <!-- Custom Application Logic -->
+</body>
+</html>
